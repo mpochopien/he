@@ -138,6 +138,9 @@
 	/*--------------------------------------------------------------------------*/
 
 	var encode = function(string, options) {
+		if(!string || string.length === 0 || /^\s*$/.test(string))
+			return null;
+
 		options = merge(options, encode.options);
 		var strict = options.strict;
 		if (strict && regexInvalidRawCodePoint.test(string)) {
